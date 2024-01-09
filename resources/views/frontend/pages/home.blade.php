@@ -146,7 +146,8 @@
                                 unknown typesetter in the century
                                 who is thought</p>
                             <div class="d-grid">
-                                <a href="#" class="primary-button text-center">View More</a>
+                                <a href="{{ route('frontend.event', 'asd') }}" class="primary-button text-center">View
+                                    More</a>
 
                             </div>
                         </div>
@@ -164,7 +165,8 @@
                                 unknown typesetter in the century
                                 who is thought</p>
                             <div class="d-grid">
-                                <a href="#" class="primary-button text-center">View More</a>
+                                <a href="{{ route('frontend.event', 'asd') }}" class="primary-button text-center">View
+                                    More</a>
 
                             </div>
                         </div>
@@ -182,7 +184,8 @@
                                 unknown typesetter in the century
                                 who is thought</p>
                             <div class="d-grid">
-                                <a href="#" class="primary-button text-center">View More</a>
+                                <a href="{{ route('frontend.event', 'asd') }}" class="primary-button text-center">View
+                                    More</a>
 
                             </div>
                         </div>
@@ -200,7 +203,8 @@
                                 unknown typesetter in the century
                                 who is thought</p>
                             <div class="d-grid">
-                                <a href="#" class="primary-button text-center">View More</a>
+                                <a href="{{ route('frontend.event', 'asd') }}" class="primary-button text-center">View
+                                    More</a>
 
                             </div>
                         </div>

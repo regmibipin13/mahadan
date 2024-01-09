@@ -11,4 +11,21 @@ class PagesController extends Controller
     {
         return view('frontend.pages.home');
     }
+    public function about()
+    {
+        return view('frontend.pages.about');
+    }
+    public function contact()
+    {
+        return view('frontend.pages.contact');
+    }
+
+    public function events()
+    {
+        return view('frontend.pages.events');
+    }
+    public function event($event)
+    {
+        return view('frontend.pages.event');
+    }
 }

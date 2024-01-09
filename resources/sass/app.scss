@@ -21,6 +21,7 @@ h1 {
     padding: 10px 20px;
     color: #fff;
     border-radius: 10px;
+    border: none;
 }
 .primary-button-outline {
     border:1px solid $primary-color;
@@ -88,6 +89,14 @@ p  {
         }
     }
 }
+#hero-section-secondary {
+    background: url('./../assets/images/hero.jpg'), rgba(0,0,0,0.7);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 300px;
+    top: 0;
+}
 
 #about-us {
     text-align: center;
@@ -129,5 +138,112 @@ p  {
         justify-content: space-between;
 
     }
+}
+
+
+#contact {
+    position: relative;
+    padding: 45px 0;
+}
+
+#contact .container {
+    max-width: 900px;
+}
+
+#contact .contact-info {
+    margin-bottom: 30px;
+}
+
+#contact .contact-info .info-item {
+    position: relative;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#contact .contact-info .info-item p {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#contact .contact-info .info-item i {
+    color: $primary-color;
+    font-size: 22px;
+    margin-right: 8px;
+}
+
+#contact .contact-info .info-item h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+#contact .contact-info .info-item p {
+    margin: 0;
+}
+
+#contact .contact-form {
+    position: relative;
+}
+
+#contact label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+#contact .contact-form input[type="text"],
+#contact .contact-form input[type="email"] {
+    height: 35px;
+    font-size: 16px;
+    font-weight: 200;
+    box-shadow: none;
+    border: 1px solid #ddd;
+    border-radius: 0;
+}
+
+#contact .contact-form textarea {
+    font-size: 16px;
+    font-weight: 200;
+    box-shadow: none;
+    border: 1px solid #ddd;
+    border-radius: 0;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+
+    textarea:focus,
+    input:focus {
+        font-size: 16px;
+        background: #fff;
+    }
+}
+
+#contact .contact-form input[type="text"]:focus,
+#contact .contact-form input[type="email"]:focus,
+#contact .contact-form textarea:focus {
+    border-color: $primary-color;
+}
+
+#contact .contact-form button {
+    display: inline-block;
+    padding: 8px 30px;
+    background: #222222;
+    color: $primary-color;
+    font-size: 18px;
+    font-weight: 400;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+#contact .contact-form button:hover {
+    color: #222222;
+    background: $primary-color;
+}
+
+#contact .help-block ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
 }
 

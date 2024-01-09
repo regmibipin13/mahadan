@@ -9,11 +9,11 @@
                             LOGO
                         </div>
                         <div class="col-md-5 navbar-lists d-flex align-items-center justify-content-between">
-                            <a href="">Home</a>
-                            <a href="">About</a>
-                            <a href="">Contact</a>
-                            <a href="">Events</a>
-                            <a href="" class="primary-button">Donate Now</a>
+                            <a href="{{ route('frontend.home') }}">Home</a>
+                            <a href="{{ route('frontend.about') }}">About</a>
+                            <a href="{{ route('frontend.contact') }}">Contact</a>
+                            <a href="{{ route('frontend.events') }}">Events</a>
+                            <a href="{{ route('login') }}" class="primary-button">Donate Now</a>
                         </div>
                     </div>
                 </div>

@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['as' => 'frontend.'], function () {
     Route::get('/', [PagesController::class, 'home'])->name('home');
+    Route::get('/about', [PagesController::class, 'about'])->name('about');
+    Route::get('/contact', [PagesController::class, 'contact'])->name('contact');
+    Route::get('/events', [PagesController::class, 'events'])->name('events');
+    Route::get('/events/{event}', [PagesController::class, 'event'])->name('event');
 });
 
 Auth::routes();

@@ -1,73 +1,73 @@
-@extends('layouts.app')
+@extends('layouts.guest')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+    <section id="authentication">
+        <div class="container">
+            <div class="row main-row">
+                <div class="col-md-12 border">
+                    <div class="row d-flex align-items-center">
+                        <div class="col-md-6 hero-section">
+                            <img src="{{ asset('images/login.png') }}" alt="Login Register Hero" class="img-fluid">
                         </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                        <div class="col-md-6 login-register-section">
+                            <div class="alert alert-success alert-dismissible" id="messages">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong> Login Successfull</strong>
                             </div>
-                        </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    Mahadan Login Form
+                                </div>
+                                <div class="card-body">
+                                    <form action="">
+                                        <div class="form-group">
+                                            <label for="username">Username</label>
+                                            <input type="text" class="form-control" id="username" placeholder="Username"
+                                                name="username" onkeyup="validateLoginForm('username')">
+                                            <p class="text-danger" id="usernameError">
 
-                        <div class="row mb-3">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                            </p>
+                                        </div>
+                                        <div class="form-group">
+                                            <div>
+                                                <label for="password">Password</label>
+                                                <i class="fas fa-eye" id="passwordIcon"></i>
+                                            </div>
+                                            <input type="password" class="form-control" id="password"
+                                                placeholder="Password" name="password"
+                                                onkeyup="validateLoginForm('password')">
+                                            <p class="text-danger" id="passwordError">
 
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
+                                            </p>
+                                        </div>
+                                        <button type="button" class="btn btn-success btn-block mb-2"><i
+                                                class="fa-solid fa-right-to-bracket"></i>&nbsp;Login</button>
+                                        <a href="{{ route('register') }}" class="alternate-action">Don't Have An Account ?
+                                            Create New
+                                            One</a><br />
+                                        <a href="{{ route('password.request') }}" class="alternate-action">Forgor Password ?
+                                            Reset Password</a>
+                                    </form>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="or-section text-center">
+                                        OR
+                                    </div>
+                                    <div class="social-media">
+                                        <a href="" class="social-login-box"><i
+                                                class="fa-brands fa-facebook"></i>&nbsp;<span>Facebook</span></a>
+                                        <a href="" class="social-login-box"><i
+                                                class="fa-brands fa-google"></i>&nbsp;<span>Google</span></a>
+                                        <a href="" class="social-login-box"><i
+                                                class="fa-brands fa-apple"></i>&nbsp;<span>Apple</span></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </section>
+    <!-- Main Section of Login Body Ends -->
 @endsection
