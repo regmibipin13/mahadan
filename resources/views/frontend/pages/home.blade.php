@@ -18,8 +18,9 @@
                         </p>
                         <div class="row py-3">
                             <div class="col-md-4 d-flex align-items-center justify-content-between m-auto">
-                                <a class="primary-button primary-button-lg" href="">Join Us Now</a>
-                                <a class="primary-button-outline primary-button-lg" href="">Learn More</a>
+                                <a class="primary-button primary-button-lg" href="{{ route('register') }}">Join Us Now</a>
+                                <a class="primary-button-outline primary-button-lg"
+                                    href="{{ route('frontend.about') }}">Learn More</a>
                             </div>
                         </div>
 
@@ -94,7 +95,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card volunter-card">
-                        <img src="{{ asset('images/v1.avif.crdownload') }}" class="card-img-top" alt="...">
+                        <img src="{{ asset('images/v1.avif') }}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h2 class="card-title">Saksham Tiwari</h2>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of
@@ -104,7 +105,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card volunter-card">
-                        <img src="{{ asset('images/v2.avif.crdownload') }}" class="card-img-top" alt="...">
+                        <img src="{{ asset('images/v2.avif') }}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h2 class="card-title">Saksham Tiwari</h2>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of
@@ -114,7 +115,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card volunter-card">
-                        <img src="{{ asset('images/v3.avif.crdownload') }}" class="card-img-top" alt="...">
+                        <img src="{{ asset('images/v3.avif') }}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h2 class="card-title">Saksham Tiwari</h2>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of
