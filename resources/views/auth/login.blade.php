@@ -19,14 +19,15 @@
                                     Mahadan Login Form
                                 </div>
                                 <div class="card-body">
-                                    <form action="">
+                                    <form action="{{ route('login') }}" method="POST">
+                                        @csrf
                                         <div class="form-group">
-                                            <label for="username">Username</label>
-                                            <input type="text" class="form-control" id="username" placeholder="Username"
-                                                name="username" onkeyup="validateLoginForm('username')">
-                                            <p class="text-danger" id="usernameError">
-
-                                            </p>
+                                            <label for="email">Email</label>
+                                            <input type="text" class="form-control" id="email" placeholder="Email"
+                                                name="email">
+                                            @if ($errors->has('email'))
+                                                <p class="text-danger">{{ $errors->first('email') }}</p>
+                                            @endif
                                         </div>
                                         <div class="form-group">
                                             <div>
@@ -36,9 +37,9 @@
                                             <input type="password" class="form-control" id="password"
                                                 placeholder="Password" name="password"
                                                 onkeyup="validateLoginForm('password')">
-                                            <p class="text-danger" id="passwordError">
-
-                                            </p>
+                                            @if ($errors->has('password'))
+                                                <p class="text-danger">{{ $errors->first('password') }}</p>
+                                            @endif
                                         </div>
                                         <button type="button" class="btn btn-success btn-block mb-2"><i
                                                 class="fa-solid fa-right-to-bracket"></i>&nbsp;Login</button>

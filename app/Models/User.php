@@ -17,10 +17,17 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    public static $roles = [
+        1 => 'Admin',
+        2 => 'Beneficiary',
+        3 => 'Donor'
+    ];
     protected $fillable = [
         'name',
         'email',
         'password',
+        'user_type'
     ];
 
     /**

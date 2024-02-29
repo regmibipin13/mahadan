@@ -15,32 +15,53 @@
                                     Login Form
                                 </div>
                                 <div class="card-body">
-                                    <form id="loginForm">
+                                    <form action="{{ route('register') }}" method="POST">
+                                        @csrf
                                         <div class="form-group">
                                             <label for="name">Name</label>
                                             <input type="text" class="form-control" id="name"
                                                 placeholder="Full Name" name="name">
-                                            <p class="text-danger"></p>
+                                            @if ($errors->has('name'))
+                                                <p class="text-danger">{{ $errors->first('name') }}</p>
+                                            @endif
                                         </div>
                                         <div class="form-group">
-                                            <label for="username">Username</label>
-                                            <input type="text" class="form-control" id="username" placeholder="Username"
-                                                name="username">
-                                            <p class="text-danger"></p>
+                                            <label for="email">Email</label>
+                                            <input type="text" class="form-control" id="email" placeholder="Email"
+                                                name="email">
+                                            @if ($errors->has('email'))
+                                                <p class="text-danger">{{ $errors->first('email') }}</p>
+                                            @endif
                                         </div>
+
+                                        <div class="form-group">
+                                            <label for="user_type">User Type</label>
+                                            <select name="user_type" id="user_type" class="form-control">
+                                                @foreach (App\Models\User::$roles as $key => $role)
+                                                    @if ($key > 1)
+                                                        <option value="{{ $key }}">{{ $role }}</option>
+                                                    @endif
+                                                @endforeach
+                                            </select>
+                                        </div>
+
                                         <div class="form-group">
                                             <label for="password">Password</label>
                                             <input type="password" class="form-control" id="password"
                                                 placeholder="Password" name="password">
-                                            <p class="text-danger"></p>
+                                            @if ($errors->has('password'))
+                                                <p class="text-danger">{{ $errors->first('password') }}</p>
+                                            @endif
                                         </div>
                                         <div class="form-group">
                                             <label for="confirm_password">Confirm Password</label>
                                             <input type="password" class="form-control" id="confirm_password"
-                                                placeholder="Confirm Password" name="confirm_password">
-                                            <p class="text-danger"></p>
+                                                placeholder="Confirm Password" name="password_confirmation">
+                                            @if ($errors->has('password_confirmation'))
+                                                <p class="text-danger">{{ $errors->first('password_confirmation') }}</p>
+                                            @endif
                                         </div>
-                                        <button class="btn btn-success btn-block mb-2" id="loginBtn" disabled><i
+                                        <button class="btn btn-success btn-block mb-2"><i
                                                 class="fa-solid fa-right-to-bracket"></i>&nbsp;Login</button>
                                         <a href="{{ route('login') }}" class="alternate-action">Already Have An Account ?
                                             Login</a>
