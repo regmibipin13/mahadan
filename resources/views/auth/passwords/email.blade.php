@@ -18,18 +18,19 @@
                                     Reset Your Password
                                 </div>
                                 <div class="card-body">
-                                    <form action="">
+                                    <form action="{{ route('password.email') }}" method="POST">
+                                        @csrf
                                         <div class="form-group">
-                                            <label for="username">Username</label>
-                                            <input type="text" class="form-control" id="username" placeholder="Username"
-                                                name="username">
-                                            <p class="text-danger" id="usernameError">
-
-                                            </p>
+                                            <label for="email">Email</label>
+                                            <input type="text" class="form-control" id="email" placeholder="Email"
+                                                name="email">
+                                            @if ($errors->has('name'))
+                                                <p class="text-danger">{{ $errors->first('name') }}</p>
+                                            @endif
                                         </div>
 
-                                        <button type="button" class="btn btn-success btn-block mb-2" id="loginBtn"><i
-                                                class="fa-solid fa-right-to-bracket"></i>&nbsp;Login</button>
+                                        <button type="submit" class="btn btn-success btn-block mb-2"><i
+                                                class="fa-solid fa-right-to-bracket"></i>&nbsp;Reset Password</button>
                                         <a href="{{ route('register') }}" class="alternate-action">Don't Have An Account ?
                                             Create New
                                             One</a>

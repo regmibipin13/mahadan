@@ -62,7 +62,7 @@
                                             @endif
                                         </div>
                                         <button class="btn btn-success btn-block mb-2"><i
-                                                class="fa-solid fa-right-to-bracket"></i>&nbsp;Login</button>
+                                                class="fa-solid fa-right-to-bracket"></i>&nbsp;Register</button>
                                         <a href="{{ route('login') }}" class="alternate-action">Already Have An Account ?
                                             Login</a>
                                     </form>

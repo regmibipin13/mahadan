@@ -41,7 +41,7 @@
                                                 <p class="text-danger">{{ $errors->first('password') }}</p>
                                             @endif
                                         </div>
-                                        <button type="button" class="btn btn-success btn-block mb-2"><i
+                                        <button type="submit" class="btn btn-success btn-block mb-2"><i
                                                 class="fa-solid fa-right-to-bracket"></i>&nbsp;Login</button>
                                         <a href="{{ route('register') }}" class="alternate-action">Don't Have An Account ?
                                             Create New
