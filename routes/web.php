@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\UsersController;
+use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\Frontend\PagesController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,3 +31,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::resource('users', UsersController::class);
 });
+
+Route::resource('categories', CategoriesController::class);

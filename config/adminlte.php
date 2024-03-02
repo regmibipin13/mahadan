@@ -310,6 +310,18 @@ return [
             'icon' => 'fas fa-fw fa-user',
         ],
 
+        [
+            'text' => 'Event Categories',
+            'url'  => 'categories',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+
+        [
+            'text' => 'Donation Events',
+            'url'  => 'events',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+
         // [
         //     'text'    => 'multilevel',
         //     'icon'    => 'fas fa-fw fa-share',
