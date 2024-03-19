@@ -27,6 +27,7 @@ Route::group(['as' => 'frontend.'], function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/user/home', [App\Http\Controllers\HomeController::class, 'guest'])->name('guest');
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::resource('users', UsersController::class);

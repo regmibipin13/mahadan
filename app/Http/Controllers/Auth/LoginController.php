@@ -43,8 +43,7 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         if ($user->user_type !== 1) {
-            Auth::logout();
-            return "Authentication is done successfully but Beneficiary Panel is not ready yet";
+            return redirect()->route('guest');
         }
     }
 }

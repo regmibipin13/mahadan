@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Laravel\Ui\Presets\React;
 
 class RegisterController extends Controller
 {
@@ -71,5 +73,12 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'user_type' => $data['user_type']
         ]);
+    }
+
+    protected function registered(Request $request, $user)
+    {
+        if ($user->user_type !== 1) {
+            return redirect()->route('guest');
+        }
     }
 }

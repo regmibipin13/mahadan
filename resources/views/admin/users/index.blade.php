@@ -44,11 +44,13 @@
                                         <td>
                                             <a href="{{ route('admin.users.edit', $user->id) }}"
                                                 class="btn btn-info">Edit</a>
-                                            <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger">Delete</button>
-                                            </form>
+                                            @if ($user->user_type !== 1)
+                                                <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                </form>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach
