@@ -31,6 +31,7 @@ class EventRequest extends FormRequest
                 'amount_raised' => 'required',
                 'category_id' => 'required',
                 'user_id' => 'nullable',
+                'image' => 'nullable',
             ];
     }
 }

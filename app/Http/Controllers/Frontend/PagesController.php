@@ -27,8 +27,8 @@ class PagesController extends Controller
         $events = Event::approved()->search($request->search)->paginate(20);
         return view('frontend.pages.events', compact('events'));
     }
-    public function event($event)
+    public function event(Event $event)
     {
-        return view('frontend.pages.event');
+        return view('frontend.pages.event', compact('event'));
     }
 }

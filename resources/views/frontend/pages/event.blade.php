@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-md-12 hero-section-text">
                         <h1>
-                            Donation Event Title
+                            {{ $event->title }}
                         </h1>
                     </div>
                 </div>
@@ -21,7 +21,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 py-3">
-                    <h1>Our Donation Event Title</h1>
+                    <h1>{{ $event->title }}</h1>
                 </div>
                 <div class="col-md-12">
                     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
@@ -55,18 +55,13 @@
             <div class="row py-5">
                 <div class="col-md-8">
                     <div class="amount mb-4">
-                        <h2 class="text-primary">Amount Raised : <span class="text-success">Rs.2,00,000</span> Out of
-                            <span class="text-danger"> 5,00,000</span>
+                        <h2 class="text-primary">Amount Raised : <span class="text-success">Rs.
+                                {{ $event->amount_raised }}</span> Out of
+                            <span class="text-danger"> {{ $event->target_amount }}</span>
                         </h2>
                     </div>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, vel cumque eum veritatis quam
-                        debitis sunt sit distinctio tempora similique quo odit ipsum fugit aperiam asperiores doloribus,
-                        quos laborum iste. Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt sit ducimus
-                        eaque adipisci incidunt placeat beatae nesciunt eum qui, nisi maiores, corporis magni minima
-                        provident similique quas, dolorem a inventore! Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Debitis dolores adipisci assumenda voluptates cumque rerum deleniti distinctio quibusdam,
-                        laborum modi. Accusantium voluptatem ex iusto culpa provident pariatur doloribus minima a.
+                        {!! $event->description !!}
                     </p>
 
                     <h4>Total Donations: 104</h4>
@@ -101,6 +96,15 @@
                             </form>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Comments and Reviews</h3>
+                </div>
+                <div class="col-md-12">
+                    <x-comments :model="$event" />
+
                 </div>
             </div>
         </div>

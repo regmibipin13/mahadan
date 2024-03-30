@@ -10,7 +10,7 @@
         </div>
     @endif
 
-    {{ Form::model($event, ['route' => ['admin.events.update', $event->id], 'method' => 'PUT']) }}
+    {{ Form::model($event, ['route' => ['admin.events.update', $event->id], 'method' => 'PUT', 'files' => true]) }}
 
     <div class="mb-3">
         {{ Form::label('title', 'Title', ['class' => 'form-label']) }}
@@ -36,6 +36,15 @@
     <div class="mb-3">
         {{ Form::label('user_id', 'Benefiary User', ['class' => 'form-label']) }}
         {{ Form::select('user_id', App\Models\User::pluck('name', 'id'), $event->user_id, ['class' => 'form-control']) }}
+    </div>
+    <div class="mb-3">
+        <label for="image">Display Image</label>
+
+        <div class="image-box my-2">
+            <img src="{{ $event->getFirstMediaUrl() }}" alt="Image" width="100" height="100">
+        </div>
+
+        <input type="file" class="form-control" name="image">
     </div>
 
     {{ Form::submit('Edit', ['class' => 'btn btn-primary']) }}

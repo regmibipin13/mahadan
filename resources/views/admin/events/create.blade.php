@@ -10,7 +10,7 @@
         </div>
     @endif
 
-    {!! Form::open(['route' => 'admin.events.store']) !!}
+    {!! Form::open(['route' => 'admin.events.store', 'files' => true]) !!}
 
     <div class="mb-3">
         {{ Form::label('title', 'Title', ['class' => 'form-label']) }}
@@ -37,7 +37,10 @@
         {{ Form::select('user_id', App\Models\User::pluck('name', 'id'), null, ['class' => 'form-control']) }}
     </div>
 
-
+    <div class="mb-3">
+        <label for="image">Display Image</label>
+        <input type="file" class="form-control" name="image">
+    </div>
     {{ Form::submit('Create', ['class' => 'btn btn-primary']) }}
 
     {{ Form::close() }}

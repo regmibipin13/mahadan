@@ -137,7 +137,7 @@
                 @foreach ($events as $event)
                     <div class="col-md-3 mb-3">
                         <div class="card">
-                            <img src="{{ asset('images/cause1.jpg') }}" class="card-img-top" alt="{{ $event->title }}">
+                            <img src="{{ $event->getDisplayImage() }}" class="card-img-top" alt="{{ $event->title }}">
                             <div class="card-body">
                                 <h3 class="card-title">{{ $event->title }}</h3>
                                 <h5 class="card-title"><span class="badge bg-primary">{{ $event->category->name }}</span>

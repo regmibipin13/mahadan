@@ -58,6 +58,11 @@ class EventsController extends Controller
         }
         $event->save();
 
+
+        if ($request->has('image') && $request->image !== null) {
+            $event->addMedia($request->image)->toMediaCollection();
+        }
+
         return to_route('admin.events.index');
     }
 
@@ -110,6 +115,11 @@ class EventsController extends Controller
             $event->approved = 1;
         }
         $event->save();
+
+        if ($request->has('image') && $request->image !== null) {
+            $event->clearMediaCollection();
+            $event->addMedia($request->image)->toMediaCollection();
+        }
 
         return to_route('admin.events.index');
     }
