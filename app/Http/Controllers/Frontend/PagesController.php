@@ -3,13 +3,15 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
-    public function home()
+    public function home(Request $request)
     {
-        return view('frontend.pages.home');
+        $events = Event::approved()->search($request->search)->paginate(20);
+        return view('frontend.pages.home', compact('events'));
     }
     public function about()
     {
@@ -20,9 +22,10 @@ class PagesController extends Controller
         return view('frontend.pages.contact');
     }
 
-    public function events()
+    public function events(Request $request)
     {
-        return view('frontend.pages.events');
+        $events = Event::approved()->search($request->search)->paginate(20);
+        return view('frontend.pages.events', compact('events'));
     }
     public function event($event)
     {

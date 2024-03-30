@@ -16,8 +16,8 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $categories= Category::all();
-        return view('categories.index', ['categories'=>$categories]);
+        $categories = Category::all();
+        return view('categories.index', ['categories' => $categories]);
     }
 
     /**
@@ -39,10 +39,10 @@ class CategoriesController extends Controller
     public function store(CategoryRequest $request)
     {
         $category = new Category;
-		$category->name = $request->input('name');
+        $category->name = $request->input('name');
         $category->save();
 
-        return to_route('categories.index');
+        return to_route('admin.categories.index');
     }
 
     /**
@@ -54,7 +54,7 @@ class CategoriesController extends Controller
     public function show($id)
     {
         $category = Category::findOrFail($id);
-        return view('categories.show',['category'=>$category]);
+        return view('categories.show', ['category' => $category]);
     }
 
     /**
@@ -66,7 +66,7 @@ class CategoriesController extends Controller
     public function edit($id)
     {
         $category = Category::findOrFail($id);
-        return view('categories.edit',['category'=>$category]);
+        return view('categories.edit', ['category' => $category]);
     }
 
     /**
@@ -79,10 +79,10 @@ class CategoriesController extends Controller
     public function update(CategoryRequest $request, $id)
     {
         $category = Category::findOrFail($id);
-		$category->name = $request->input('name');
+        $category->name = $request->input('name');
         $category->save();
 
-        return to_route('categories.index');
+        return to_route('admin.categories.index');
     }
 
     /**
@@ -96,6 +96,6 @@ class CategoriesController extends Controller
         $category = Category::findOrFail($id);
         $category->delete();
 
-        return to_route('categories.index');
+        return to_route('admin.categories.index');
     }
 }

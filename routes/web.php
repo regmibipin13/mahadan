@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\EventsController as AdminEventsController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\EventsController;
 use App\Http\Controllers\Frontend\PagesController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,8 +31,14 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/user/home', [App\Http\Controllers\HomeController::class, 'guest'])->name('guest');
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin']], function () {
     Route::resource('users', UsersController::class);
+    Route::resource('categories', CategoriesController::class);
+
+    Route::patch('events/{event}/status', [AdminEventsController::class, 'approve'])->name('events.approve');
+    Route::resource('events', AdminEventsController::class);
 });
 
-Route::resource('categories', CategoriesController::class);
+Route::group(['prefix' => 'user', 'as' => 'user.', 'middleware' => 'auth'], function () {
+    Route::resource('events', EventsController::class);
+});

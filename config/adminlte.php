@@ -313,13 +313,13 @@ return [
 
         [
             'text' => 'Event Categories',
-            'url'  => 'categories',
+            'url'  => 'admin/categories',
             'icon' => 'fas fa-fw fa-user',
         ],
 
         [
             'text' => 'Donation Events',
-            'url'  => 'events',
+            'url'  => 'admin/events',
             'icon' => 'fas fa-fw fa-user',
         ],
 

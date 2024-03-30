@@ -9,13 +9,12 @@
                             Your Contribution <br>
                             Their Brighter Future
                         </h1>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium dolore obcaecati sint
-                            alias
-                            hic non aut maxime fuga eaque? Nam, unde incidunt! Error officia nam magni nulla magnam
-                            repellat
-                            dicta!
-                        </p>
+                        <form action="{{ route('frontend.events') }}">
+                            <input type="search" class="form-control" name="search"
+                                style="width:40%; margin:0 auto; height:50px; text-align:center; font-size:18px;"
+                                placeholder="Search for your donations events"
+                                value="{{ request()->search ?? old('search', '') }}">
+                        </form>
                         <div class="row py-3">
                             <div class="col-md-4 d-flex align-items-center justify-content-between m-auto">
                                 <a class="primary-button primary-button-lg" href="{{ route('register') }}">Join Us Now</a>
@@ -135,82 +134,30 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-3 mb-3">
-                    <div class="card">
-                        <img src="{{ asset('images/cause1.jpg') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h3 class="card-title">Help Us to Find Food</h3>
-                            <div class="money-raised my-2">
-                                <span class="font-weight-1000"><strong> 2,02,020 Raised / 3,00,000</strong></span>
-                            </div>
-                            <p class="card-text">The passage is attributed to an
-                                unknown typesetter in the century
-                                who is thought</p>
-                            <div class="d-grid">
-                                <a href="{{ route('frontend.event', 'asd') }}" class="primary-button text-center">View
-                                    More</a>
+                @foreach ($events as $event)
+                    <div class="col-md-3 mb-3">
+                        <div class="card">
+                            <img src="{{ asset('images/cause1.jpg') }}" class="card-img-top" alt="{{ $event->title }}">
+                            <div class="card-body">
+                                <h3 class="card-title">{{ $event->title }}</h3>
+                                <h5 class="card-title"><span class="badge bg-primary">{{ $event->category->name }}</span>
+                                </h5>
+                                <div class="money-raised my-2">
+                                    <span class="font-weight-1000"><strong>
+                                            {{ $event->formatAmount($event->amount_raised) }}
+                                            Raised / {{ $event->target_amount }}</strong></span>
+                                </div>
+                                <p class="card-text" style="font-size: 15px; color:#111;">{!! Str::words($event->description, 20, '...') !!}</p>
+                                <div class="d-grid">
+                                    <a href="{{ route('frontend.event', $event->id) }}"
+                                        class="primary-button text-center">View
+                                        More</a>
 
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <div class="card">
-                        <img src="{{ asset('images/cause1.jpg') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h3 class="card-title">Help Us to Find Food</h3>
-                            <div class="money-raised my-2">
-                                <span class="font-weight-1000"><strong> 2,02,020 Raised / 3,00,000</strong></span>
-                            </div>
-                            <p class="card-text">The passage is attributed to an
-                                unknown typesetter in the century
-                                who is thought</p>
-                            <div class="d-grid">
-                                <a href="{{ route('frontend.event', 'asd') }}" class="primary-button text-center">View
-                                    More</a>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <div class="card">
-                        <img src="{{ asset('images/cause1.jpg') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h3 class="card-title">Help Us to Find Food</h3>
-                            <div class="money-raised my-2">
-                                <span class="font-weight-1000"><strong> 2,02,020 Raised / 3,00,000</strong></span>
-                            </div>
-                            <p class="card-text">The passage is attributed to an
-                                unknown typesetter in the century
-                                who is thought</p>
-                            <div class="d-grid">
-                                <a href="{{ route('frontend.event', 'asd') }}" class="primary-button text-center">View
-                                    More</a>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <div class="card">
-                        <img src="{{ asset('images/cause1.jpg') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h3 class="card-title">Help Us to Find Food</h3>
-                            <div class="money-raised my-2">
-                                <span class="font-weight-1000"><strong> 2,02,020 Raised / 3,00,000</strong></span>
-                            </div>
-                            <p class="card-text">The passage is attributed to an
-                                unknown typesetter in the century
-                                who is thought</p>
-                            <div class="d-grid">
-                                <a href="{{ route('frontend.event', 'asd') }}" class="primary-button text-center">View
-                                    More</a>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

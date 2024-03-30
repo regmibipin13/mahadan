@@ -1,38 +1,38 @@
 <?php
 
 return
-[
-	'views_style_directory'=> 'default-theme',
-	'separate_style_according_to_actions' =>
     [
-        'index'=>
+        'views_style_directory' => 'default-theme',
+        'separate_style_according_to_actions' =>
         [
-            'extends'=>'default',
-            'section'=>'content'
+            'index' =>
+            [
+                'extends' => 'layouts.admin',
+                'section' => 'content'
+            ],
+            'create' =>
+            [
+                'extends' => 'layouts.admin',
+                'section' => 'content'
+            ],
+            'edit' =>
+            [
+                'extends' => 'layouts.admin',
+                'section' => 'content'
+            ],
+            'show' =>
+            [
+                'extends' => 'layouts.admin',
+                'section' => 'content'
+            ],
         ],
-        'create'=>
+        'paths' =>
         [
-            'extends'=>'default',
-            'section'=>'content'
-        ],
-        'edit'=>
-        [
-            'extends'=>'default',
-            'section'=>'content'
-        ],
-        'show'=>
-        [
-            'extends'=>'default',
-            'section'=>'content'
-        ],
-    ],
-    'paths' =>
-    [
-        'service' =>
-        [
-            'path' => app_path('Services'),
-            'namespace' => 'App\Services'
+            'service' =>
+            [
+                'path' => app_path('Services'),
+                'namespace' => 'App\Services'
+            ]
         ]
-    ]
 
-];
+    ];
