@@ -59,6 +59,16 @@
                                 </div>
                             </div>
                         @endif
+                        @if ($message = Session::get('error'))
+                            <div class="row">
+                                <div class="col-md-12 my-3">
+                                    <div class="alert alert-success">
+                                        {{ $message }}
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+
                         <form action="#" id="contactForm" novalidate="novalidate" method="POST">
                             @csrf
                             <div class="form-row">
@@ -74,20 +84,20 @@
                                     <label>Phone</label>
                                     <input type="text" class="form-control" id="email" placeholder="E.g. 98***"
                                         required="required" data-validation-required-message="Please enter your phone"
-                                        name="email" />
+                                        name="phone" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label>Subject</label>
-                                <input type="text" class="form-control" id="subject" placeholder="E.g. Room Booking"
-                                    required="required" data-validation-required-message="Please enter a subject"
-                                    name="subject" />
+                                <input type="text" class="form-control" id="subject"
+                                    placeholder="E.g. Donation in cash" required="required"
+                                    data-validation-required-message="Please enter a subject" name="subject" />
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="control-group">
                                 <label>Message</label>
-                                <textarea class="form-control" id="message" rows="5" placeholder="E.g. I need a premium room"
+                                <textarea class="form-control" id="message" rows="5" placeholder="E.g. I need a to how to donate"
                                     required="required" data-validation-required-message="Please enter your message" name="message"></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>

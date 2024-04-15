@@ -322,6 +322,16 @@ return [
             'url'  => 'admin/events',
             'icon' => 'fas fa-fw fa-user',
         ],
+        [
+            'text' => 'Donations',
+            'url'  => 'admin/donations',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'Blogs',
+            'url'  => 'admin/blogs',
+            'icon' => 'fas fa-fw fa-user',
+        ],
 
         // [
         //     'text'    => 'multilevel',

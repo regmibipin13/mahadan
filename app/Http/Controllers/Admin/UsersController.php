@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
@@ -80,5 +81,11 @@ class UsersController extends Controller
     {
         $user->delete();
         return redirect()->route('admin.users.index')->with('success', 'Users Deleted Successfully');
+    }
+
+    public function login(User $user)
+    {
+        Auth::login($user);
+        return redirect()->route('guest');
     }
 }

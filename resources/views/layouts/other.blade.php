@@ -54,6 +54,12 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
+                                <a href="{{ route('user.blogs.index') }}" class="nav-link">Blogs</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="{{ route('user.donations.index') }}" class="nav-link">Donations</a>
+                            </li>
+                            <li class="nav-item dropdown">
                                 <a href="{{ route('user.events.index') }}" class="nav-link">Donation Events</a>
                             </li>
                             <li class="nav-item dropdown">

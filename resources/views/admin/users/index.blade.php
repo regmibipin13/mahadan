@@ -51,6 +51,11 @@
                                                     <button type="submit" class="btn btn-danger">Delete</button>
                                                 </form>
                                             @endif
+
+                                            <form action="{{ route('admin.users.login', $user->id) }}" method="POST">
+                                                @csrf
+                                                <button class="btn btn-primary" type="submit"> -> Login</button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach
