@@ -51,12 +51,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin']],
     Route::patch('events/{event}/status', [AdminEventsController::class, 'approve'])->name('events.approve');
     Route::resource('events', AdminEventsController::class);
 
+    Route::post('donations/export', [AdminDonationsController::class, 'export'])->name('donations.export');
     Route::resource('donations', AdminDonationsController::class);
+
     Route::resource('blogs', AdminBlogsController::class);
 });
 
 Route::group(['prefix' => 'user', 'as' => 'user.', 'middleware' => 'auth'], function () {
-    Route::resource('events', EventsController::class);
+    Route::resource('events', EventsController::class)->middleware('beneficiary');
     Route::resource('donations', DonationsController::class);
-    Route::resource('blogs', BlogsController::class);
+    Route::resource('blogs', BlogsController::class)->middleware('beneficiary');
 });

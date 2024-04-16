@@ -5,22 +5,24 @@
     <div class="d-flex justify-content-start mb-3">
         <h3>Donations</h3>
     </div>
-    <form action="{{ route('user.donations.index') }}" class="mt-2 mb-3">
-        <div class="form-group">
-            <label for="event">Event</label>
+    @if (auth()->user()->user_type == 2)
+        <form action="{{ route('user.donations.index') }}" class="mt-2 mb-3">
+            <div class="form-group">
+                <label for="event">Event</label>
 
-            <select name="event_id" id="event_id" class="form-control">
-                <option value="">All</option>
+                <select name="event_id" id="event_id" class="form-control">
+                    <option value="">All</option>
 
-                @foreach (App\Models\Event::all() as $event)
-                    <option value="{{ $event->id }}" {{ request()->event_id == $event->id ? 'selected' : '' }}>
-                        {{ $event->title }}</option>
-                @endforeach
-            </select>
+                    @foreach (App\Models\Event::all() as $event)
+                        <option value="{{ $event->id }}" {{ request()->event_id == $event->id ? 'selected' : '' }}>
+                            {{ $event->title }}</option>
+                    @endforeach
+                </select>
 
-            <button type="submit" class="btn btn-success">Filter</button>
-        </div>
-    </form>
+                <button type="submit" class="btn btn-success">Filter</button>
+            </div>
+        </form>
+    @endif
 
 
     <table class="table table-bordered">

@@ -54,14 +54,16 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a href="{{ route('user.blogs.index') }}" class="nav-link">Blogs</a>
-                            </li>
-                            <li class="nav-item dropdown">
                                 <a href="{{ route('user.donations.index') }}" class="nav-link">Donations</a>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a href="{{ route('user.events.index') }}" class="nav-link">Donation Events</a>
-                            </li>
+                            @if (auth()->user()->user_type == 2)
+                                <li class="nav-item dropdown">
+                                    <a href="{{ route('user.blogs.index') }}" class="nav-link">Blogs</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a href="{{ route('user.events.index') }}" class="nav-link">Donation Events</a>
+                                </li>
+                            @endif
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

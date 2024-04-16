@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Donation;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
 
 class DonationsController extends Controller
 {
@@ -63,5 +65,15 @@ class DonationsController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function export(Request $request)
+    {
+        $donations = Donation::search($request->event_id)->get();
+        $data = [
+            'donations' => $donations,
+        ];
+        $pdf = Pdf::loadView('pdfs.donations', $data);
+        return $pdf->download('donations-' . Carbon::now()->toString() . '.pdf');
     }
 }
