@@ -86,46 +86,6 @@
         </div>
     </section>
 
-    <section id="volunteers" class="py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center py-3">
-                    <h1>Our Volunters</h1>
-                </div>
-                <div class="col-md-4">
-                    <div class="card volunter-card">
-                        <img src="{{ asset('images/v1.avif') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h2 class="card-title">Saksham Tiwari</h2>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                                the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card volunter-card">
-                        <img src="{{ asset('images/v2.avif') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h2 class="card-title">Saksham Tiwari</h2>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                                the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card volunter-card">
-                        <img src="{{ asset('images/v3.avif') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h2 class="card-title">Saksham Tiwari</h2>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                                the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section id="events" class="py-5">
         <div class="container">
             <div class="row">
@@ -150,6 +110,36 @@
                                 <p class="card-text" style="font-size: 15px; color:#111;">{!! Str::words($event->description, 20, '...') !!}</p>
                                 <div class="d-grid">
                                     <a href="{{ route('frontend.event', $event->id) }}"
+                                        class="primary-button text-center">View
+                                        More</a>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    <section id="events" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 py-3">
+                    <h1>Our Blogs and News</h1>
+                </div>
+            </div>
+            <div class="row">
+                @foreach ($blogs as $event)
+                    <div class="col-md-3 mb-3">
+                        <div class="card">
+                            <img src="{{ $event->getDisplayImage() }}" class="card-img-top" alt="{{ $event->title }}">
+                            <div class="card-body">
+                                <h3 class="card-title">{{ $event->title }}</h3>
+                                <p class="card-text" style="font-size: 15px; color:#111;">{!! Str::words($event->description, 20, '...') !!}</p>
+                                <div class="d-grid">
+                                    <a href="{{ route('frontend.blog', $event->id) }}"
                                         class="primary-button text-center">View
                                         More</a>
 

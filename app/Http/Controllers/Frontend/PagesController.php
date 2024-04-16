@@ -16,7 +16,8 @@ class PagesController extends Controller
     public function home(Request $request)
     {
         $events = Event::approved()->search($request->search)->paginate(20);
-        return view('frontend.pages.home', compact('events'));
+        $blogs = Blog::approved()->orderBy('id', 'desc')->limit(6)->get();
+        return view('frontend.pages.home', compact('events', 'blogs'));
     }
     public function about()
     {
