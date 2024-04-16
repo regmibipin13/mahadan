@@ -53,4 +53,9 @@ class Event extends Model implements HasMedia, ICommentable
         }
         return asset('images/cause1.jpg');
     }
+
+    public function donations()
+    {
+        return $this->hasMany(Donation::class);
+    }
 }

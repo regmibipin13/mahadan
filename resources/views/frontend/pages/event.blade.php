@@ -38,32 +38,7 @@
                     </div>
                 @endif
                 <div class="col-md-12">
-                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="{{ asset('images/slider1.avif') }}" class="d-block w-100" alt="..."
-                                    height="500">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="{{ asset('images/slider2.avif') }}" class="d-block w-100"
-                                    alt="..."height="500">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="{{ asset('images/slider3.avif') }}" class="d-block w-100"
-                                    alt="..."height="500">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
+                    <img src="{{ $event->getDisplayImage() }}" alt="{{ $event->title }}" width="100%" height="500px">
                 </div>
 
             </div>
@@ -79,7 +54,7 @@
                         {!! $event->description !!}
                     </p>
 
-                    <h4>Total Donations: 104</h4>
+                    <h4>Total Donations: {{ $event->donations->count() }}</h4>
                 </div>
                 <div class="col-md-4">
                     <div class="card">
