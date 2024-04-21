@@ -38,12 +38,14 @@ class Event extends Model implements HasMedia, ICommentable
     {
         return $query->where('approved', true);
     }
-    public function scopeSearch($query, $title)
+    public function scopeSearch($query, $request)
     {
-        if ($title == null) {
-            return $query;
+        if ($request->has('category_id') && $request->category_id !== null) {
+            $query->where('category_id', $request->category_id);
         }
-        return $query->where('title', 'like', '%' . $title . '%');
+        if ($request->has('title') && $request->search !== null) {
+            $query->where('title', 'like', '%' . $request->search . '%');
+        }
     }
 
     public function getDisplayImage()

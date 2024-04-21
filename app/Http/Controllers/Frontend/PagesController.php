@@ -15,7 +15,7 @@ class PagesController extends Controller
 {
     public function home(Request $request)
     {
-        $events = Event::approved()->search($request->search)->paginate(20);
+        $events = Event::approved()->search($request)->paginate(20);
         $blogs = Blog::approved()->orderBy('id', 'desc')->limit(6)->get();
         return view('frontend.pages.home', compact('events', 'blogs'));
     }
@@ -30,7 +30,7 @@ class PagesController extends Controller
 
     public function events(Request $request)
     {
-        $events = Event::approved()->search($request->search)->paginate(20);
+        $events = Event::approved()->search($request)->paginate(20);
         return view('frontend.pages.events', compact('events'));
     }
     public function event(Event $event)

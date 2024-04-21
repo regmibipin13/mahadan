@@ -11,6 +11,15 @@
                         </h1>
 
                         <form action="{{ route('frontend.events') }}">
+                            <select name="category_id" id="category_id" class="form-control mb-2"
+                                style="width:40%; margin:0 auto; height:50px; text-align:center; font-size:18px;">
+                                <option value="">All</option>
+                                @foreach (App\Models\Category::all() as $category)
+                                    <option
+                                        value="{{ $category->id }}"{{ $category->id == request()->category_id ? 'selected' : '' }}>
+                                        {{ $category->name }}</option>
+                                @endforeach
+                            </select>
                             <input type="search" class="form-control" name="search"
                                 style="width:40%; margin:0 auto; height:50px; text-align:center; font-size:18px;"
                                 placeholder="Search for your donations events"
