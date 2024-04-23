@@ -3,7 +3,7 @@
         <div class="row d-flex align-items-center">
             <div class="col-md-4">
                 <div class="logo-box">
-                    <h1>LOGO</h1>
+                    <h1>MAHADAN</h1>
                 </div>
                 <div class="about-box">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae voluptate doloribus illum

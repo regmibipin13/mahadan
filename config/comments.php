@@ -7,7 +7,7 @@ return [
         'comment' => \App\Models\Comment::class,
         'votes' => \tizis\laraComments\Entity\CommentVotes::class,
     ],
-    'ui' => 'bootstrap5',
+    'ui' => 'bootstrap4',
     'purifier' => [
         'HTML_Allowed' => 'p',
     ],

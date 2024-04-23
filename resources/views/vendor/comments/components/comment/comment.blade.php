@@ -1,5 +1,5 @@
 @if (isset($reply) && $reply === true)
-    <div id="comment-{{ $comment->id }}" class="media">
+    <div id="comment-{{ $comment->id }}" class="media" style="margin-left: 20px;">
     @else
         <li id="comment-{{ $comment->id }}" class="media">
 @endif

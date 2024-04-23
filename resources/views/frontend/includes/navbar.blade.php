@@ -6,7 +6,7 @@
                 <div class="col-md-12">
                     <div class="row d-flex align-items-center">
                         <div class="col-md-7">
-                            LOGO
+                            <img src="{{ asset('images/mahadan.png') }}" alt="Mahadan" width="300">
                         </div>
                         <div class="col-md-5 navbar-lists d-flex align-items-center justify-content-between">
                             <a href="{{ route('frontend.home') }}">Home</a>
