@@ -22,7 +22,7 @@
     </div>
     <div class="mb-3">
         {{ Form::label('user_id', 'User_id', ['class' => 'form-label']) }}
-        {{ Form::text('user_id', null, ['class' => 'form-control']) }}
+        {{ Form::text('user_id', App\Models\User::where('user_type', 2)->pluck('name', 'id'), ['class' => 'form-control']) }}
     </div>
     <div class="mb-3">
         {{ Form::label('approved', 'Approved', ['class' => 'form-label']) }}

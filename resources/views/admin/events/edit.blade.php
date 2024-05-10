@@ -35,7 +35,7 @@
     </div>
     <div class="mb-3">
         {{ Form::label('user_id', 'Benefiary User', ['class' => 'form-label']) }}
-        {{ Form::select('user_id', App\Models\User::pluck('name', 'id'), $event->user_id, ['class' => 'form-control']) }}
+        {{ Form::select('user_id', App\Models\User::where('user_type', 2)->pluck('name', 'id'), $event->user_id, ['class' => 'form-control']) }}
     </div>
     <div class="mb-3">
         <label for="image">Display Image</label>
